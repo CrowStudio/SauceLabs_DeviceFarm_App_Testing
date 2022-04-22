@@ -1,0 +1,16 @@
+{
+  "name": "devicefarm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@u4/opencv4nodejs": "^6.1.3",
+    "webdriverio": "^7.16.13"
+  }
+}
