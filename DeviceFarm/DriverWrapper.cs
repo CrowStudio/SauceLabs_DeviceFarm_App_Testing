@@ -168,9 +168,6 @@ namespace DeviceFarm
             return MobileBy.AccessibilityId(id);
         }
         
-        
-        private IWebElement _webElement;
-        
         public IWebElement FindElement(string id)
         {
             var by = FindBy(id);
@@ -192,7 +189,7 @@ namespace DeviceFarm
             try
             {
                 var wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(20));
-                _webElement = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(by));
+                return wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(by));
             }
             catch (Exception e)
             {
@@ -200,9 +197,8 @@ namespace DeviceFarm
                 id = id[id.IndexOf('(')..].Replace("(", "").Replace(")", "");
                     
                 Console.WriteLine($"Element \"{id}\" was NOT found\n" + e);
+                return null;
             }
-
-            return _webElement;
         }
 
         public ReadOnlyCollection<IWebElement> FindElements(By by)
